@@ -5,6 +5,7 @@ before:
     # You may remove this if you don't use go modules.
     - go mod tidy
 builds:
+  - id: windows
     env:
       - CGO_ENABLED=1
     goos:
