@@ -9,6 +9,9 @@ jobs:
   goreleaser-linux:
     runs-on: ubuntu-latest
     steps:
+      - 
+        name: Install
+        run: sudo apt install libgtk-3-dev libappindicator3-dev gir1.2-appindicator3-0.1
       -
         name: Checkout
         uses: actions/checkout@v2
