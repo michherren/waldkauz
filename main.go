@@ -18,9 +18,10 @@ import (
 )
 
 //go:embed waldkauz-data-template/frontend/*
+//go:embed waldkauz-data-template/install/*
 var dataDir embed.FS
 
-//go:embed waldkauz-data-template/config_template.yml
+//go:embed waldkauz-data-template/config_template.yaml
 var configFile embed.FS
 
 var dataDirPath = "waldkauz-data"
@@ -30,14 +31,16 @@ func main() {
 
 	recreateDataDir()
 
-	os.Setenv("CONFIG_FILEPATH", "waldkauz-data/config.yml")
+	os.Setenv("CONFIG_FILEPATH", "waldkauz-data/config.yaml")
 	cfg, err := api.LoadConfig(startupLogger)
 	if err != nil {
 		startupLogger.Fatal("failed to load config", zap.Error(err))
+		notValidConfig()
 	}
 	err = cfg.Validate()
 	if err != nil {
 		startupLogger.Fatal("failed to validate config", zap.Error(err))
+		notValidConfig()
 	}
 
 	a := api.New(&cfg)
@@ -50,7 +53,16 @@ func main() {
 	systray.Run(onReady, onExit)
 }
 
+func notValidConfig() {
+	browser.OpenFile("waldkauz-data/install/instructions.html")
+}
+
 func recreateDataDir() {
+	firstRun := false
+	if _, err := os.Stat(dataDirPath); os.IsNotExist(err) {
+		firstRun = true
+	}
+
 	fs.WalkDir(dataDir, ".", func(path string, info os.DirEntry, err error) error {
 		if err != nil {
 			return err
@@ -66,7 +78,6 @@ func recreateDataDir() {
 			if err != nil {
 				panic(fmt.Sprintf("datadir '%s' could not be created", dataDirPath))
 			}
-			return nil
 		}
 
 		if stats, err := os.Stat(path); !os.IsNotExist(err) && !stats.IsDir() {
@@ -85,15 +96,18 @@ func recreateDataDir() {
 		return nil
 	})
 
-	if _, err := os.Stat(filepath.Join(dataDirPath, "config.yml")); os.IsNotExist(err) {
-		content, _ := configFile.ReadFile("waldkauz-data-template/config_template.yml")
-		targetPath := filepath.Join(dataDirPath, "config.yml")
+	if _, err := os.Stat(filepath.Join(dataDirPath, "config.yaml")); os.IsNotExist(err) {
+		content, _ := configFile.ReadFile("waldkauz-data-template/config_template.yaml")
+		targetPath := filepath.Join(dataDirPath, "config.yaml")
 		err := os.WriteFile(targetPath, content, 0644)
 		if err != nil {
 			panic(fmt.Sprintf("%s could not be created: %v", targetPath, err))
 		}
 	}
 
+	if firstRun {
+		notValidConfig()
+	}
 }
 
 func onReady() {
@@ -102,15 +116,15 @@ func onReady() {
 	systray.SetTooltip("Waldkauz")
 
 	mOpen := systray.AddMenuItem("Open Interface", "Open Interface")
-	mRestart := systray.AddMenuItem("Restart Server", "Restart Server")
+	//mRestart := systray.AddMenuItem("Restart Server", "Restart Server")
 	mQuit := systray.AddMenuItem("Quit", "Close Waldkauz")
 	go func() {
 		for {
 			select {
 			case <-mOpen.ClickedCh:
 				browser.OpenURL("http://localhost:9090/topics")
-			case <-mRestart.ClickedCh:
-				browser.OpenURL("http://localhost:9090")
+			/*case <-mRestart.ClickedCh:
+			browser.OpenURL("http://localhost:9090")*/
 			case <-mQuit.ClickedCh:
 				fmt.Println("Requesting quit")
 				systray.Quit()
