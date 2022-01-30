@@ -17,21 +17,29 @@ import (
 	"go.uber.org/zap"
 )
 
-//go:embed waldkauz-data-template/frontend/*
-//go:embed waldkauz-data-template/install/*
-var dataDir embed.FS
+var (
+	version = "dev"
+	commit  = "none"
+	date    = "unknown"
+	builtBy = "unknown"
 
-//go:embed waldkauz-data-template/config_template.yaml
-var configFile embed.FS
+	//go:embed waldkauz-data-template/frontend/*
+	//go:embed waldkauz-data-template/install/*
+	dataDir embed.FS
 
-var dataDirPath = "waldkauz-data"
+	//go:embed waldkauz-data-template/config_template.yaml
+	configFile embed.FS
+
+	dataDirPath = "waldkauz-data"
+	serverHost  = "http://localhost:8080"
+)
 
 func main() {
 	startupLogger := zap.NewExample()
 
 	recreateDataDir()
 
-	os.Setenv("CONFIG_FILEPATH", "waldkauz-data/config.yaml")
+	os.Setenv("CONFIG_FILEPATH", filepath.Join("waldkauz-data", "config.yaml"))
 	cfg, err := api.LoadConfig(startupLogger)
 	if err != nil {
 		startupLogger.Fatal("failed to load config", zap.Error(err))
@@ -46,7 +54,7 @@ func main() {
 	a := api.New(&cfg)
 	go a.Start()
 
-	browser.OpenURL("http://localhost:9090")
+	browser.OpenURL(serverHost)
 
 	registerShutdownSignal()
 
@@ -54,7 +62,7 @@ func main() {
 }
 
 func notValidConfig() {
-	browser.OpenFile("waldkauz-data/install/instructions.html")
+	browser.OpenFile(filepath.Join("waldkauz-data", "install", "instructions.html"))
 }
 
 func recreateDataDir() {
@@ -97,7 +105,7 @@ func recreateDataDir() {
 	})
 
 	if _, err := os.Stat(filepath.Join(dataDirPath, "config.yaml")); os.IsNotExist(err) {
-		content, _ := configFile.ReadFile("waldkauz-data-template/config_template.yaml")
+		content, _ := configFile.ReadFile(filepath.Join("waldkauz-data-template", "config_template.yaml"))
 		targetPath := filepath.Join(dataDirPath, "config.yaml")
 		err := os.WriteFile(targetPath, content, 0644)
 		if err != nil {
@@ -113,7 +121,7 @@ func recreateDataDir() {
 func onReady() {
 	systray.SetIcon(icon.Data)
 	systray.SetTitle("Waldkauz")
-	systray.SetTooltip("Waldkauz")
+	systray.SetTooltip(fmt.Sprintf("Waldkauz - %s, commit %s, built at %s by %s", version, commit, date, builtBy))
 
 	mOpen := systray.AddMenuItem("Open Interface", "Open Interface")
 	//mRestart := systray.AddMenuItem("Restart Server", "Restart Server")
@@ -122,7 +130,7 @@ func onReady() {
 		for {
 			select {
 			case <-mOpen.ClickedCh:
-				browser.OpenURL("http://localhost:9090/topics")
+				browser.OpenURL(fmt.Sprintf("%s/topics", serverHost))
 			/*case <-mRestart.ClickedCh:
 			browser.OpenURL("http://localhost:9090")*/
 			case <-mQuit.ClickedCh:

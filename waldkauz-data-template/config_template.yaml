@@ -24,10 +24,10 @@
 # --- Note
 # Commented config settings are optional and show the defaults
 ###################################################################
-frontendPath: waldkauz-data/frontend/kowl
+frontendPath: waldkauz-data/frontend
 kafka:
   brokers:
-    - BOOTSTRAP-URL:9092
+    - BOOTSTRAP-URL
   # clientId: kowl
   # rackId: # In multi zone Kafka clusters you can reduce traffic costs by consuming messages from replica brokers in the same zone
   sasl:
