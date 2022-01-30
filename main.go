@@ -23,16 +23,15 @@ var (
 	date    = "unknown"
 	builtBy = "unknown"
 
-	//go:embed waldkauz-data-template/frontend/*
-	//go:embed waldkauz-data-template/install/*
-	dataDir embed.FS
-
-	//go:embed waldkauz-data-template/config_template.yaml
-	configFile embed.FS
-
 	dataDirPath = "waldkauz-data"
 	serverHost  = "http://localhost:8080"
 )
+
+//go:embed waldkauz-data-template/frontend waldkauz-data-template/install
+var dataDir embed.FS
+
+//go:embed waldkauz-data-template/config_template.yaml
+var configFile embed.FS
 
 func main() {
 	startupLogger := zap.NewExample()
@@ -88,14 +87,14 @@ func recreateDataDir() {
 			}
 		}
 
-		if stats, err := os.Stat(path); !os.IsNotExist(err) && !stats.IsDir() {
+		if !info.IsDir() {
 			fileContent, err := dataDir.ReadFile(path)
 			if err != nil {
 				panic(fmt.Sprintf("could not read file '%s' could not be created", dataDirPath))
 			}
 
 			targetPath := filepath.Join(targetDir, info.Name())
-			err = os.WriteFile(targetPath, fileContent, 0644)
+			err = os.WriteFile(targetPath, fileContent, 0666)
 			if err != nil {
 				panic(fmt.Sprintf("%s could not be created: %v", targetPath, err))
 			}
@@ -107,7 +106,7 @@ func recreateDataDir() {
 	if _, err := os.Stat(filepath.Join(dataDirPath, "config.yaml")); os.IsNotExist(err) {
 		content, _ := configFile.ReadFile(filepath.Join("waldkauz-data-template", "config_template.yaml"))
 		targetPath := filepath.Join(dataDirPath, "config.yaml")
-		err := os.WriteFile(targetPath, content, 0644)
+		err := os.WriteFile(targetPath, content, 0666)
 		if err != nil {
 			panic(fmt.Sprintf("%s could not be created: %v", targetPath, err))
 		}
