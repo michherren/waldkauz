@@ -104,7 +104,7 @@ func recreateDataDir() {
 	})
 
 	if _, err := os.Stat(filepath.Join(dataDirPath, "config.yaml")); os.IsNotExist(err) {
-		content, _ := configFile.ReadFile(filepath.Join("waldkauz-data-template", "config_template.yaml"))
+		content, _ := configFile.ReadFile("waldkauz-data-template/config_template.yaml")
 		targetPath := filepath.Join(dataDirPath, "config.yaml")
 		err := os.WriteFile(targetPath, content, 0666)
 		if err != nil {
