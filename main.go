@@ -41,13 +41,13 @@ func main() {
 	os.Setenv("CONFIG_FILEPATH", filepath.Join("waldkauz-data", "config.yaml"))
 	cfg, err := api.LoadConfig(startupLogger)
 	if err != nil {
-		startupLogger.Fatal("failed to load config", zap.Error(err))
 		notValidConfig()
+		startupLogger.Fatal("failed to load config", zap.Error(err))
 	}
 	err = cfg.Validate()
 	if err != nil {
-		startupLogger.Fatal("failed to validate config", zap.Error(err))
 		notValidConfig()
+		startupLogger.Fatal("failed to validate config", zap.Error(err))
 	}
 
 	a := api.New(&cfg)
