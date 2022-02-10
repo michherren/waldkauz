@@ -38,7 +38,7 @@ func main() {
 
 	recreateDataDir()
 
-	os.Setenv("CONFIG_FILEPATH", filepath.Join("waldkauz-data", "config.yaml"))
+	os.Setenv("CONFIG_FILEPATH", filepath.Join(dataDirPath, "config.yaml"))
 	cfg, err := api.LoadConfig(startupLogger)
 	if err != nil {
 		notValidConfig()
@@ -61,7 +61,7 @@ func main() {
 }
 
 func notValidConfig() {
-	browser.OpenFile(filepath.Join("waldkauz-data", "install", "instructions.html"))
+	browser.OpenFile(filepath.Join(dataDirPath, "install", "instructions.html"))
 }
 
 func recreateDataDir() {
