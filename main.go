@@ -50,6 +50,8 @@ func main() {
 		startupLogger.Fatal("failed to validate config", zap.Error(err))
 	}
 
+	serverHost = fmt.Sprintf("http://localhost:%d", cfg.REST.HTTPListenPort)
+
 	a := api.New(&cfg)
 	go a.Start()
 

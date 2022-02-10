@@ -25,6 +25,8 @@
 # Commented config settings are optional and show the defaults
 ###################################################################
 frontendPath: waldkauz-data/frontend
+server:
+  listenPort: 8080
 kafka:
   brokers:
     - BOOTSTRAP-URL
