@@ -5,7 +5,7 @@
 
 ---
 
-This is a weekend-project to explore multi-arch builds and packaging in go. Waldkauz is a small wrapper around the awesome [Kowl](https://github.com/cloudhut/kowl) Kafka-Client. The generated static binary includes everything needed to run kowl.
+This is a weekend-project to explore multi-arch builds and packaging in go. Waldkauz is a small wrapper around the awesome [Redpanda Console (formerly known as Kowl)](https://github.com/redpanda-data/console) Kafka-Client. The generated static binary includes everything needed to run console.
 
 **important:** This is provided as is and only very limited testing was done!
 
@@ -13,4 +13,4 @@ This is a weekend-project to explore multi-arch builds and packaging in go. Wald
 Head over to the releases page https://github.com/michherren/waldkauz/releases and download the latest build.
 
 ## Acknowledgement
-Cloudhut for the awesome kafka-client kowl: https://github.com/cloudhut/kowl
+Redpanda for the awesome kafka-client console: https://github.com/redpanda-data/console

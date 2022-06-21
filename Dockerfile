@@ -1,10 +1,10 @@
-FROM node:17-alpine
+FROM node:16.13-alpine
 RUN apk update && apk add --no-cache git ca-certificates && update-ca-certificates
 
-ARG KWOL_GIT_HASH=0
-RUN git clone https://github.com/cloudhut/kowl /app
+ARG CONSOLE_GIT_HASH=0
+RUN git clone https://github.com/redpanda-data/console /app
 WORKDIR /app/
-RUN git checkout ${KWOL_GIT_HASH}
+RUN git checkout ${CONSOLE_GIT_HASH}
 
 WORKDIR /app/frontend
 
