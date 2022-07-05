@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "./static/css/main.6706d7e2.chunk.css",
-    "main.js": "./static/js/main.f144a780.chunk.js",
-    "main.js.map": "./static/js/main.f144a780.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.367f0ee3.js",
-    "runtime-main.js.map": "./static/js/runtime-main.367f0ee3.js.map",
-    "static/css/2.e717a4cc.chunk.css": "./static/css/2.e717a4cc.chunk.css",
-    "static/js/2.b979e8b5.chunk.js": "./static/js/2.b979e8b5.chunk.js",
-    "static/js/2.b979e8b5.chunk.js.map": "./static/js/2.b979e8b5.chunk.js.map",
+    "main.css": "./static/css/main.12810e52.chunk.css",
+    "main.js": "./static/js/main.e1edb34d.chunk.js",
+    "main.js.map": "./static/js/main.e1edb34d.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.a4ef154a.js",
+    "runtime-main.js.map": "./static/js/runtime-main.a4ef154a.js.map",
+    "static/css/2.818ef230.chunk.css": "./static/css/2.818ef230.chunk.css",
+    "static/js/2.6ca2dc71.chunk.js": "./static/js/2.6ca2dc71.chunk.js",
+    "static/js/2.6ca2dc71.chunk.js.map": "./static/js/2.6ca2dc71.chunk.js.map",
     "index.html": "./index.html",
-    "static/css/2.e717a4cc.chunk.css.map": "./static/css/2.e717a4cc.chunk.css.map",
-    "static/css/main.6706d7e2.chunk.css.map": "./static/css/main.6706d7e2.chunk.css.map",
-    "static/js/2.b979e8b5.chunk.js.LICENSE.txt": "./static/js/2.b979e8b5.chunk.js.LICENSE.txt",
+    "static/css/2.818ef230.chunk.css.map": "./static/css/2.818ef230.chunk.css.map",
+    "static/css/main.12810e52.chunk.css.map": "./static/css/main.12810e52.chunk.css.map",
+    "static/js/2.6ca2dc71.chunk.js.LICENSE.txt": "./static/js/2.6ca2dc71.chunk.js.LICENSE.txt",
     "static/media/amazon-s3.174ed583.png": "./static/media/amazon-s3.174ed583.png",
     "static/media/apache.37d39b2c.svg": "./static/media/apache.37d39b2c.svg",
     "static/media/cassandra.e0e05ba3.png": "./static/media/cassandra.e0e05ba3.png",
@@ -22,6 +22,7 @@
     "static/media/google-bigquery.720c1317.svg": "./static/media/google-bigquery.720c1317.svg",
     "static/media/google-pub-sub.a3571be2.svg": "./static/media/google-pub-sub.a3571be2.svg",
     "static/media/hdfs.230ccc85.png": "./static/media/hdfs.230ccc85.png",
+    "static/media/icon-color.b9a9ea38.svg": "./static/media/icon-color.b9a9ea38.svg",
     "static/media/jdbc.195658f4.png": "./static/media/jdbc.195658f4.png",
     "static/media/kumbh-sans.css": "./static/media/kumbh-sans-v11-latin-regular.b769225d.eot",
     "static/media/mssql.2168306c.png": "./static/media/mssql.2168306c.png",
@@ -32,17 +33,16 @@
     "static/media/poppins.css": "./static/media/poppins-v15-latin-ext_latin-regular.c99237cd.eot",
     "static/media/postgres.52d31cc1.png": "./static/media/postgres.52d31cc1.png",
     "static/media/quicksand.css": "./static/media/quicksand-v24-latin-ext_latin-regular.e8772b5d.woff",
-    "static/media/redpandaConsole.1499c71d.svg": "./static/media/redpandaConsole.1499c71d.svg",
+    "static/media/redpanda-color.8f627789.svg": "./static/media/redpanda-color.8f627789.svg",
     "static/media/salesforce.34f2c743.png": "./static/media/salesforce.34f2c743.png",
     "static/media/snowflake.28954151.png": "./static/media/snowflake.28954151.png",
-    "static/media/twitter.172471ff.svg": "./static/media/twitter.172471ff.svg",
-    "static/media/v_symbol.19d0977f.svg": "./static/media/v_symbol.19d0977f.svg"
+    "static/media/twitter.172471ff.svg": "./static/media/twitter.172471ff.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.367f0ee3.js",
-    "static/css/2.e717a4cc.chunk.css",
-    "static/js/2.b979e8b5.chunk.js",
-    "static/css/main.6706d7e2.chunk.css",
-    "static/js/main.f144a780.chunk.js"
+    "static/js/runtime-main.a4ef154a.js",
+    "static/css/2.818ef230.chunk.css",
+    "static/js/2.6ca2dc71.chunk.js",
+    "static/css/main.12810e52.chunk.css",
+    "static/js/main.e1edb34d.chunk.js"
   ]
 }
