@@ -14,6 +14,7 @@ builds:
       - amd64
     ldflags: "-H=windowsgui -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}} -X main.builtBy=goreleaser"
   - id: windows-debug
+    binary: waldkauz-debug
     env:
       - CGO_ENABLED=1
     goos:
