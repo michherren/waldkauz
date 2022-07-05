@@ -13,6 +13,14 @@ builds:
     goarch:
       - amd64
     ldflags: "-H=windowsgui -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}} -X main.builtBy=goreleaser"
+  - id: windows-debug
+    env:
+      - CGO_ENABLED=1
+    goos:
+      - windows
+    goarch:
+      - amd64
+    ldflags: "-s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}} -X main.builtBy=goreleaser"
 archives:
   - replacements:
       windows: Windows
