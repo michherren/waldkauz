@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "./static/css/main.12810e52.chunk.css",
-    "main.js": "./static/js/main.e1edb34d.chunk.js",
-    "main.js.map": "./static/js/main.e1edb34d.chunk.js.map",
+    "main.css": "./static/css/main.10f2d909.chunk.css",
+    "main.js": "./static/js/main.e9af51f1.chunk.js",
+    "main.js.map": "./static/js/main.e9af51f1.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.a4ef154a.js",
     "runtime-main.js.map": "./static/js/runtime-main.a4ef154a.js.map",
-    "static/css/2.818ef230.chunk.css": "./static/css/2.818ef230.chunk.css",
-    "static/js/2.6ca2dc71.chunk.js": "./static/js/2.6ca2dc71.chunk.js",
-    "static/js/2.6ca2dc71.chunk.js.map": "./static/js/2.6ca2dc71.chunk.js.map",
+    "static/css/2.94fb5dc0.chunk.css": "./static/css/2.94fb5dc0.chunk.css",
+    "static/js/2.e908d637.chunk.js": "./static/js/2.e908d637.chunk.js",
+    "static/js/2.e908d637.chunk.js.map": "./static/js/2.e908d637.chunk.js.map",
     "index.html": "./index.html",
-    "static/css/2.818ef230.chunk.css.map": "./static/css/2.818ef230.chunk.css.map",
-    "static/css/main.12810e52.chunk.css.map": "./static/css/main.12810e52.chunk.css.map",
-    "static/js/2.6ca2dc71.chunk.js.LICENSE.txt": "./static/js/2.6ca2dc71.chunk.js.LICENSE.txt",
+    "static/css/2.94fb5dc0.chunk.css.map": "./static/css/2.94fb5dc0.chunk.css.map",
+    "static/css/main.10f2d909.chunk.css.map": "./static/css/main.10f2d909.chunk.css.map",
+    "static/js/2.e908d637.chunk.js.LICENSE.txt": "./static/js/2.e908d637.chunk.js.LICENSE.txt",
     "static/media/amazon-s3.174ed583.png": "./static/media/amazon-s3.174ed583.png",
     "static/media/apache.37d39b2c.svg": "./static/media/apache.37d39b2c.svg",
     "static/media/cassandra.e0e05ba3.png": "./static/media/cassandra.e0e05ba3.png",
@@ -34,15 +34,16 @@
     "static/media/postgres.52d31cc1.png": "./static/media/postgres.52d31cc1.png",
     "static/media/quicksand.css": "./static/media/quicksand-v24-latin-ext_latin-regular.e8772b5d.woff",
     "static/media/redpanda-color.8f627789.svg": "./static/media/redpanda-color.8f627789.svg",
+    "static/media/redpanda_console_horizontal.475b5ad2.svg": "./static/media/redpanda_console_horizontal.475b5ad2.svg",
     "static/media/salesforce.34f2c743.png": "./static/media/salesforce.34f2c743.png",
     "static/media/snowflake.28954151.png": "./static/media/snowflake.28954151.png",
     "static/media/twitter.172471ff.svg": "./static/media/twitter.172471ff.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.a4ef154a.js",
-    "static/css/2.818ef230.chunk.css",
-    "static/js/2.6ca2dc71.chunk.js",
-    "static/css/main.12810e52.chunk.css",
-    "static/js/main.e1edb34d.chunk.js"
+    "static/css/2.94fb5dc0.chunk.css",
+    "static/js/2.e908d637.chunk.js",
+    "static/css/main.10f2d909.chunk.css",
+    "static/js/main.e9af51f1.chunk.js"
   ]
 }

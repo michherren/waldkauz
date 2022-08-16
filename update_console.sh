@@ -1,4 +1,4 @@
-CONSOLE_GIT_HASH=f95af628521e75c1edc7470dbf3fb79bda5bc26b
+CONSOLE_GIT_HASH=1faa0ba497b27df13809cf107a565f127b6bd453
 
 go get "github.com/redpanda-data/console@${CONSOLE_GIT_HASH}"
 go mod tidy
