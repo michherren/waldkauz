@@ -26,3 +26,43 @@ changelog:
     exclude:
       - '^docs:'
       - '^test:'
+brews:
+  -
+    name: waldkauz
+
+    # GitHub/GitLab repository to push the formula to
+    tap:
+      owner: michherren
+      name: homebrew-waldkauz
+
+      # Optionally a token can be provided, if it differs from the token provided to GoReleaser
+      #token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+
+    # Caveats for the user of your binary.
+    # Default is empty.
+    caveats: "Start the binary and follow the install instructions"
+
+    # Your app's homepage.
+    # Default is empty.
+    homepage: "https://github.com/michherren/waldkauz"
+
+    # Template of your app's description.
+    # Default is empty.
+    description: "Redpanda Console Kafka client as a single static binary."
+
+    # SPDX identifier of your app's license.
+    # Default is empty.
+    license: "MIT"
+
+    # Setting this will prevent goreleaser to actually try to commit the updated
+    # formula - instead, the formula file will be stored on the dist folder only,
+    # leaving the responsibility of publishing it to the user.
+    # If set to auto, the release will not be uploaded to the homebrew tap
+    # in case there is an indicator for prerelease in the tag e.g. v1.0.0-rc1
+    # Default is false.
+    skip_upload: true
+
+    # Custom install script for brew.
+    # Default is 'bin.install "program"'.
+    #install: |
+    #  bin.install "program"
