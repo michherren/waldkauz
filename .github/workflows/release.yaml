@@ -78,6 +78,10 @@ jobs:
           args: release --rm-dist -f .goreleaser-mac.yaml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HOMEBREW_TAP_GITHUB_TOKEN: ${{ secrets.HOMEBREW_TAP_GITHUB_TOKEN }}
+
+
+
 
 
           
